@@ -13,7 +13,6 @@ namespace UnityStandardAssets.Vehicles.Ball
 
         private Transform cam; // A reference to the main camera in the scenes transform
         private Vector3 camForward; // The current forward direction of the camera
-        private bool jump; // whether the jump button is currently pressed
 
 
         private void Awake()
@@ -42,11 +41,11 @@ namespace UnityStandardAssets.Vehicles.Ball
 
             float h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
             float v = CrossPlatformInputManager.GetAxisRaw("Vertical");
-            jump = CrossPlatformInputManager.GetButton("Jump");
 
             // calculate move direction
 			// we use world-relative directions in the case of no main camera
 			move = (v*Vector3.forward + h*Vector3.right).normalized;
+
         }
 
 
@@ -54,7 +53,8 @@ namespace UnityStandardAssets.Vehicles.Ball
         {
             // Call the Move function of the ball controller
             ball.Move(move);
-            jump = false;
+			ball.Look ();
+            
         }
     }
 }
