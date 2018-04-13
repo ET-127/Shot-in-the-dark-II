@@ -13,11 +13,9 @@ public class Follow : MonoBehaviour {
 	void FixedUpdate () {
 
 		Vector3 desiredPos = target.position + offset;
-		//Vector3 smoothedPos = Vector3.Lerp (transform.position,desiredPos,smoothSpeed);
 
 		transform.position = desiredPos;	
 
-		//transform.LookAt (target);
 
 	}
 }
